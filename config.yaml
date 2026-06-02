@@ -1,0 +1,22 @@
+trading:
+  min_edge: 0.005               # minimum edge after fees (0.5%)
+  max_position_usdh: 10         # hard cap per trade
+  min_ttl_seconds: 120          # don't trade if market expires in less than this
+  polymarket_taker_fee: 0.018
+  bankroll_usdh: 100.0          # total capital for Kelly sizing
+  kelly_fraction: 0.25          # fractional Kelly multiplier
+
+# Fill in market pairs to trade.
+# hip4_outcome_id: integer outcome ID from HyperCore outcomeMeta API
+#   Discover via: POST https://api.hyperliquid.xyz/info {"type": "outcomeMeta"}
+#   YES coin = #{outcome_id * 10}, NO coin = #{outcome_id * 10 + 1}
+#
+# polymarket_asset_id: YES token ID from Polymarket CLOB
+#   Discover via: https://gamma-api.polymarket.com/events?slug=<event-slug>
+#   Use clobTokenIds[0] for the matching YES token
+markets:
+  - id: "example-market"
+    polymarket_asset_id: "FILL_ME"   # Polymarket YES token ID
+    hip4_outcome_id: 0               # HyperCore outcome ID
+
+mode: paper   # paper | live
